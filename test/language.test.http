@@ -6,7 +6,7 @@ GET http://localhost:4000/api/v2/languages/3
 
 ###
 
-GET http://localhost:4000/api/v2/languages/123
+GET http://localhost:4000/api/v2/languages/112
 
 ###
 
@@ -14,7 +14,7 @@ POST http://localhost:4000/api/v2/languages/
 Content-Type: application/json
 
 {
-  "langid": 12,
+  "langid": 22,
   "name": "BASIC",
   "dob": 1964,
   "github23_pr": 1.0,

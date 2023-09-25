@@ -1,3 +1,26 @@
 [
-  { "langid": 2, "vote": 1 }
+  {
+    "langid": 2,
+    "vote": -1
+  },
+  {
+    "langid": 2,
+    "vote": 1
+  },
+  {
+    "langid": 2,
+    "vote": -1
+  },
+  {
+    "langid": 2,
+    "vote": 1
+  },
+  {
+    "langid": 2,
+    "vote": 1
+  },
+  {
+    "langid": 2,
+    "vote": 1
+  }
 ]

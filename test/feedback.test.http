@@ -2,7 +2,7 @@
 GET http://localhost:4000/api/v2/feedbacks
 
 ###
-POST http://localhost:4000/api/v2/feedbacks/vote/11
+POST http://localhost:4000/api/v2/feedbacks/vote/2
 Content-Type: application/json
 
 {
@@ -10,4 +10,4 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:4000/api/v2/feedbacks/summary/11
+GET http://localhost:4000/api/v2/feedbacks/summary/2
