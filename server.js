@@ -1,5 +1,4 @@
 const express = require("express");
-const feedbackQuery = require("./queries/feedback.js");
 
 const app = express();
 const PORT = 4000;
