@@ -22,8 +22,8 @@ router.get("/", async (req, res) => {
         const valB = isNumericField ? b[orderBy] : b[orderBy].toLowerCase();
         return (valA > valB ? 1 : valA < valB ? -1 : 0) * sortOrder;
       });
-      res.status(200).send(filteredLanguages);
     }
+    res.status(200).send(filteredLanguages);
   } catch (err) {
     res.status(500).send(err.message);
   }

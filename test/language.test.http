@@ -2,7 +2,18 @@ GET http://localhost:4000/api/v2/languages
 
 ###
 
+### Test query routes
 GET http://localhost:4000/api/v2/languages?orderBy=name&dir=desc&search=a
+
+##
+
+GET http://localhost:4000/api/v2/languages?orderBy=dob&dir=asc&search=r
+
+##
+
+GET http://localhost:4000/api/v2/languages?orderBy=github23_stars&dir=asc
+
+##
 
 GET http://localhost:4000/api/v2/languages/3
 
