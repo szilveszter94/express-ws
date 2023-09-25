@@ -2,6 +2,8 @@ GET http://localhost:4000/api/v2/languages
 
 ###
 
+GET http://localhost:4000/api/v2/languages?orderBy=name&dir=desc&search=a
+
 GET http://localhost:4000/api/v2/languages/3
 
 ###

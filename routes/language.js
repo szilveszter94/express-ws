@@ -5,9 +5,27 @@ const languageQuery = require("../queries/language.js");
 router.get("/", async (req, res) => {
   try {
     const languages = await languageQuery.getLanguages();
-    res.status(200).send(languages);
+    const { search, orderBy, dir } = req.query;
+    let filteredLanguages = languages;
+    if (search) {
+      filteredLanguages = languages.filter((lan) =>
+        lan.name.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+    if (orderBy && dir) {
+      const isNumericField = ["dob", "github23_pr", "github23_stars"].includes(
+        orderBy
+      );
+      const sortOrder = dir.toLowerCase() === "asc" ? 1 : -1;
+      filteredLanguages.sort((a, b) => {
+        const valA = isNumericField ? a[orderBy] : a[orderBy].toLowerCase();
+        const valB = isNumericField ? b[orderBy] : b[orderBy].toLowerCase();
+        return (valA > valB ? 1 : valA < valB ? -1 : 0) * sortOrder;
+      });
+      res.status(200).send(filteredLanguages);
+    }
   } catch (err) {
-    console.log(err);
+    res.status(500).send(err.message);
   }
 });
 
@@ -31,4 +49,4 @@ router.post("/", (req, res) => {
   }
 });
 
-module.exports = router
+module.exports = router;

@@ -13,23 +13,33 @@ async function readLanguages() {
 }
 
 async function writeLanguages(lang) {
-  const data = JSON.stringify(lang, null, 2)
+  const data = JSON.stringify(lang, null, 2);
   await fs.writeFile(languageFilePath, data);
-
 }
 
 async function getLanguages() {
   const languages = await readLanguages();
-  const selectedData = languages.map(lang => {
-    return {id: lang.langid, name: lang.name}
+  if (languages) {
+    return languages.map((lang) => {
+      return {
+        id: lang.id,
+        name: lang.name,
+        dob: lang.dob,
+        github23_pr: lang.github23_pr,
+        github23_stars: lang.github23_stars,
+        designer: lang.designer,
+        maintainer: lang.maintainer,
+      };
   })
-  return selectedData;
+  } else {
+    throw Error("Languages not found!");
+  }
 }
 
 async function getLanguage(langid) {
   const languages = await readLanguages();
-  const response = languages.find(lang => lang.langid === parseInt(langid))
-  if(response){
+  const response = languages.find((lang) => lang.langid === parseInt(langid));
+  if (response) {
     return response;
   } else {
     throw Error("Language not found!");
@@ -38,9 +48,9 @@ async function getLanguage(langid) {
 
 async function createLanguage(lang) {
   const languages = await readLanguages();
-  if (!languages.find((l) => l.langid === lang.langid)){
+  if (!languages.find((l) => l.langid === lang.langid)) {
     languages.push(lang);
-    await writeLanguages(languages)
+    await writeLanguages(languages);
     return lang;
   } else {
     throw Error("Language already exists");
